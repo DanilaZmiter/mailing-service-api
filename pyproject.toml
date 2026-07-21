@@ -9,9 +9,11 @@ dependencies = [
     "bcrypt>=5.0.0", #dependency for handle password as byte strings
     "celery>=5.6.3", #dependency for async task queue
     "fastapi>=0.139.2", #dependency for better api creating
+    "httpx>=0.28.1",#dependency for using another api to send email
     #dependency 1) pydantic for data serialization and validation, also used by fastapi
     #dependency 2) email-validaotor for more efficient email validation
-    "httpx>=0.28.1",#dependency for using another api to send email
+    #dependency 3) settings for more comfortable config writing
+    "pydantic-settings>=2.14.2",
     "pydantic[email]>=2.13.4",
     "pyjwt>=2.13.0", #dependency for more easy realization of JWT auth
     "python-dotenv>=1.2.2", #dependency for taking environmental arguments from .env
