@@ -1,0 +1,27 @@
+[project]
+name = "mailing-service-api"
+version = "0.1.0"
+description = "Project title (working): Notification Broadcasting Service\n\nBrief description:\nThis project is a backend service for broadcasting notifications (email and push) via asynchronous task queues. It provides a REST API built with FastAPI for creating broadcast campaigns, tracking their status, and viewing delivery details. Task processing is handled by Celery with RabbitMQ as a message broker, ensuring high reliability and scalability. Data is stored in a relational database using SQLAlchemy ORM, with migrations managed by Alembic. Dependency management and virtual environment are handled by uv.\n\nTech stack:\nFastAPI, Celery, RabbitMQ, SQLAlchemy, Alembic, uv, PostgreSQL (expected), Python 3.12+."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "asyncpg>=0.31.0", #dependency for supporting async postgresql
+    "bcrypt>=5.0.0", #dependency for handle password as byte strings
+    "celery>=5.6.3", #dependency for async task queue
+    "fastapi>=0.139.2", #dependency for better api creating
+    #dependency 1) pydantic for data serialization and validation, also used by fastapi
+    #dependency 2) email-validaotor for more efficient email validation
+    "httpx>=0.28.1",#dependency for using another api to send email
+    "pydantic[email]>=2.13.4",
+    "pyjwt>=2.13.0", #dependency for more easy realization of JWT auth
+    "python-dotenv>=1.2.2", #dependency for taking environmental arguments from .env
+    "sqlalchemy>=2.0.51", #dependency for using ORM
+    "uvicorn>=0.51.0", #dependency for start server
+]
+
+[dependency-groups]
+dev = [
+    "alembic>=1.18.5", #dependency for database migration
+    "black>=26.5.1", #dependency for code foramtting
+    "pytest>=9.1.1", #dependency for testing app
+]
