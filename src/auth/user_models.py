@@ -12,7 +12,7 @@ class UserORM(BaseORM):
     uuid: Mapped[UUID] = mapped_column(
         primary_key=True, server_default=func.gen_random_uuid(), unique=True, index=True
     )
-    # campaign_id: Mapped[UUID] = mapped_column(ForeignKey("campaign.id", ondelete="CASCADE"), index=True) # cascsde for deleting user when deleting company
+    # company_id: Mapped[UUID] = mapped_column(ForeignKey("company.id", ondelete="CASCADE"), index=True) # cascsde for deleting user when deleting company
     username: Mapped[str] = mapped_column(nullable=False, unique=True)
     first_name: Mapped[str] = mapped_column(nullable=False)
     last_name: Mapped[str] = mapped_column(nullable=False)
